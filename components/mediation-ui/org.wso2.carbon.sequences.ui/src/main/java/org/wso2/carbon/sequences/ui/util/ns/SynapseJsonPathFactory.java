@@ -55,7 +55,9 @@ public class SynapseJsonPathFactory {
             if (!assertIDNotEmpty(id) || !assertSourceNotEmpty(source)) {
                 return null;
             }
-            SynapseJsonPath jsonPath = new SynapseJsonPath(source.trim());
+            source = source.trim();
+            // Creating a JSON path after removing first 10 characters of : "json-eval("
+            SynapseJsonPath jsonPath = new SynapseJsonPath(source.substring(10, source.length() - 1));
             return jsonPath;
         } catch (JaxenException e) {
             String msg = "Error creating a JsonPath from text : " + source;
