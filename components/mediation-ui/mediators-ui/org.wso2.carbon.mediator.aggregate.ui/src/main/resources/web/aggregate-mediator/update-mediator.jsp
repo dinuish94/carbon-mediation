@@ -97,12 +97,16 @@
             aggregateMediator.setAggregationExpression(xPathFactory.createSynapseXPath("aggregate_expr", request, session));
         }
     }
-       
-      if(!correlate_exp.equals("")){
+
+    if (!correlate_exp.equals("")) {
+        if (correlate_exp.startsWith("json-eval(")) {
+            aggregateMediator.setCorrelateExpression(synapsePathFactory.createSynapseJsonPath("correlate_expr", request));
+        } else {
             aggregateMediator.setCorrelateExpression(xPathFactory.createSynapseXPath("correlate_expr", request, session));
-      } else {
-            aggregateMediator.setCorrelateExpression(null);
-      }
+        }
+    } else {
+        aggregateMediator.setCorrelateExpression(null);
+    }
       
       if (request.getParameter("mediator.aggregate.id") != null && 
     				  !request.getParameter("mediator.aggregate.id").trim().
