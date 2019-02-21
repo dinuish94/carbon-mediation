@@ -88,20 +88,20 @@ public class MicroIntegratorRegistry extends AbstractRegistry {
 
     public MicroIntegratorRegistry() {
         //default registry is file system based resided in carbon home
-        String defaultFSRegRoot = RegistryHelper.getHome().replace(File.separator, ESBRegistryConstants.URL_SEPARATOR);
-        if (!defaultFSRegRoot.endsWith(ESBRegistryConstants.URL_SEPARATOR)) {
-            defaultFSRegRoot = defaultFSRegRoot + ESBRegistryConstants.URL_SEPARATOR;
+        String defaultFSRegRoot = RegistryHelper.getHome().replace(File.separator, URL_SEPARATOR);
+        if (!defaultFSRegRoot.endsWith(URL_SEPARATOR)) {
+            defaultFSRegRoot = defaultFSRegRoot + URL_SEPARATOR;
         }
         //Default registry root : <CARBON_HOME>/registry/
-        defaultFSRegRoot += "registry" + ESBRegistryConstants.URL_SEPARATOR;
+        defaultFSRegRoot += "registry" + URL_SEPARATOR;
 
         //create default file system paths for registry
         //Default registry local registry location : <CARBON_HOME>/registry/local
-        this.localRegistry = FILE_URI_PREFIX + defaultFSRegRoot + "local" + ESBRegistryConstants.URL_SEPARATOR;
+        this.localRegistry = FILE_URI_PREFIX + defaultFSRegRoot + "local" + URL_SEPARATOR;
         //Default registry config registry location : <CARBON_HOME>/registry/config
-        this.configRegistry = FILE_URI_PREFIX + defaultFSRegRoot + "config" + ESBRegistryConstants.URL_SEPARATOR;
+        this.configRegistry = FILE_URI_PREFIX + defaultFSRegRoot + "config" + URL_SEPARATOR;
         //Default registry governance registry location : <CARBON_HOME>/registry/governance
-        this.govRegistry = FILE_URI_PREFIX + defaultFSRegRoot + "governance" + ESBRegistryConstants.URL_SEPARATOR;
+        this.govRegistry = FILE_URI_PREFIX + defaultFSRegRoot + "governance" + URL_SEPARATOR;
     }
 
     @Override
@@ -381,8 +381,8 @@ public class MicroIntegratorRegistry extends AbstractRegistry {
                 return null;
             }
 
-            if (!resourceRootEntry.endsWith(ESBRegistryConstants.URL_SEPARATOR)) {
-                resourceRootEntry += ESBRegistryConstants.URL_SEPARATOR;
+            if (!resourceRootEntry.endsWith(URL_SEPARATOR)) {
+                resourceRootEntry += URL_SEPARATOR;
             }
 
             String[] children = file.list();
@@ -779,7 +779,7 @@ public class MicroIntegratorRegistry extends AbstractRegistry {
                 resourcePath = key;
             }
 
-            if (resourcePath.startsWith(ESBRegistryConstants.URL_SEPARATOR)) {
+            if (resourcePath.startsWith(URL_SEPARATOR)) {
                 resourcePath = resourcePath.substring(1);
             }
 
@@ -880,14 +880,14 @@ public class MicroIntegratorRegistry extends AbstractRegistry {
                     } else if (ESBRegistryConstants.PROTOCOL_HTTP.equals(rootPathUrl.getProtocol())) {
                         registryProtocol = HTTP;
                         registryType = ESBRegistryConstants.REMOTE_HOST_REGISTRY;
-                        if (!value.endsWith(ESBRegistryConstants.URL_SEPARATOR)) {
-                            value += ESBRegistryConstants.URL_SEPARATOR;
+                        if (!value.endsWith(URL_SEPARATOR)) {
+                            value += URL_SEPARATOR;
                         }
 
                     } else if (ESBRegistryConstants.PROTOCOL_HTTPS.equals(rootPathUrl.getProtocol())) {
                         registryProtocol = HTTPS;
-                        if (!value.endsWith(ESBRegistryConstants.URL_SEPARATOR)) {
-                            value += ESBRegistryConstants.URL_SEPARATOR;
+                        if (!value.endsWith(URL_SEPARATOR)) {
+                            value += URL_SEPARATOR;
                         }
 
                     }
