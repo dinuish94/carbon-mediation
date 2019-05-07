@@ -16,8 +16,16 @@
  ~ under the License.
  -->
 <component xmlns="http://products.wso2.org/carbon">
-	<menus>
-	    <menu>
+
+    <ManagementPermissions>
+        <ManagementPermission>
+            <DisplayName>Secure Vault</DisplayName>
+            <ResourceId>/permission/admin/manage/securevault</ResourceId>
+        </ManagementPermission>
+    </ManagementPermissions>
+
+    <menus>
+        <menu>
             <id>secure_vault_main_menu</id>
             <i18n-key>mediation.secure.vault</i18n-key>
             <i18n-bundle>org.wso2.carbon.mediation.security.vault.ui.i18n.Resources</i18n-bundle>
@@ -27,24 +35,21 @@
             <order>9</order>
             <style-class>manage</style-class>
             <icon>../mediation_secure_vault/images/secure-vault.png</icon>
-            <require-permission>/permission/admin/manage</require-permission>
+            <require-permission>/permission/admin/manage/securevault</require-permission>
         </menu>
-        
-		<menu>
-			<id>secure_vault_list_view</id>
-			<i18n-key>mediation.secure.vault.list.configs</i18n-key>
-			<i18n-bundle>org.wso2.carbon.mediation.security.vault.ui.i18n.Resources</i18n-bundle>
-			<parent-menu>secure_vault_main_menu</parent-menu>
-			<link>../mediation_secure_vault/manageSecureVault.jsp</link>
-			<region>region1</region>
-			<order>1</order>
-			<style-class>manage</style-class>
+        <menu>
+            <id>secure_vault_list_view</id>
+            <i18n-key>mediation.secure.vault.list.configs</i18n-key>
+            <i18n-bundle>org.wso2.carbon.mediation.security.vault.ui.i18n.Resources</i18n-bundle>
+            <parent-menu>secure_vault_main_menu</parent-menu>
+            <link>../mediation_secure_vault/manageSecureVault.jsp</link>
+            <region>region1</region>
+            <order>1</order>
+            <style-class>manage</style-class>
             <icon>../mediation_secure_vault/images/list.gif</icon>
-            <require-permission>/permission/admin/manage</require-permission>
+            <require-permission>/permission/admin/manage/securevault</require-permission>
         </menu>
-       
-		
-	</menus>
+    </menus>
 
 </component>
 
