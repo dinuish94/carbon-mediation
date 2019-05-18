@@ -166,10 +166,10 @@ public class EndpointAdmin extends AbstractServiceBusAdmin {
                         /*
                         * When updating an endpoint which is currently in use, a temporary Synapse config
                         * Entry is getting created.
-                        * If this entry value is null, we can identify that as the temporary entry and override it
+                        * If this entry is remote type, we can identify that as the temporary entry and override it
                         * with the correct endpoint.
                         * */
-                        if (((Entry) entry).getValue() != null) {
+                        if (((Entry) entry).getType() != Entry.REMOTE_ENTRY) {
                             handleFault("The name " + endpointName +
                                     " is already used within the configuration", null);
                         }
